@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="GBK"?>
+<config>
+<!-- 使用tomcat 连接池，不使用下面配置-->
+	<DestDB>
+		<driver>net.sourceforge.jtds.jdbc.Driver</driver>
+		<url>jdbc:jtds:sqlserver://10.0.120.30:1433/videonew</url>
+		<username>sa</username>
+		<password>hf!@#</password>
+	</DestDB>
+	
+	<!-- 连接池配置 -->
+	<ConnectionPool>
+		<!-- 初始化连接数 -->
+		<initialSize>1</initialSize>			
+		<!-- 最小空闲连接 -->
+		<minIdle>1</minIdle>			
+		<!-- 最大空闲连接 -->
+		<maxIdle>3</maxIdle>			
+		<!-- 最大连接数 -->
+		<maxActive>5</maxActive>			
+		<!-- 超时回收时间(以毫秒为单位) -->
+		<maxWait>10000</maxWait>			
+		<!-- 是否在自动回收超时连接的时候打印连接的超时错误 -->
+		<logAbandoned>true</logAbandoned>			
+		<!-- 是否自动回收超时连接 -->
+		<removeAbandoned>true</removeAbandoned>			
+		<!-- 超时时间(以秒数为单位) -->
+		<removeAbandonedTimeout>60</removeAbandonedTimeout>			
+	</ConnectionPool>
+	
+	<!--
+	type:int
+	default:17
+	对访问的有有效验证，需与js里的设置相同
+	-->
+	<validNum>17</validNum>
+	<!--
+	type:int
+	default:3
+	间隔几分钟写一次文件
+	-->
+	<interval>3</interval>
+	<!-- 
+	type:int
+	default:60
+	判断恶意访问的时间间隔依据,精确到秒
+		如60，则表示两次访问同一篇视频间隔为60秒内的不增加其点击量
+	 -->
+	<timeRange>10</timeRange>
+	
+</config>

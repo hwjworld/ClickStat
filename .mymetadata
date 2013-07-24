@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="ClickStat"
+  id="myeclipse.1216910586000"
+  context-root="/ClickStat"
+  j2ee-spec="1.4"
+  archive="ClickStat.war">
+  <attributes>
+    <attribute name="webrootdir" value="Web" />
+  </attributes>
+</project-module>
+

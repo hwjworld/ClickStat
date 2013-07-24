@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="GBK"?>
+<click-stat>
+	<stat>
+		<id>101</id>
+		<num>1</num>
+	</stat>
+	<stat>
+		<id>102</id>
+		<num>2</num>
+	</stat>
+	<stat>
+		<id>103</id>
+		<num>13</num>
+	</stat>
+	<stat>
+		<id>104</id>
+		<num>114</num>
+	</stat>
+	<stat>
+		<id>105</id>
+		<num>116</num>
+	</stat>
+</click-stat>

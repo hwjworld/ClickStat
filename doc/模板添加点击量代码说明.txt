@@ -1,0 +1,52 @@
+http://114.251.16.30:8080/cs/contentcs.js
+http://114.251.16.30:8080/cs/clickstat.js
+
+1.修改栏目页
+	a.请在栏目页模板中引入http://114.251.16.30:8080/cs/clickstat.js这个js文件
+		<span onclick="addOne(<Id>IdPh</Id>)">
+	b.在需要点击量的视频的链接<a>标签中加入 onclick="addOne(333)" 这个方法，（其中333为制作模板时选择的稿件标识）
+	c.在需要显示点击量的地方的标签增加，<span id="a333"，url=articleurl></span>（其中333为制作模板时选择的稿件标识，前面的a为手动增加上的）
+		播放：<span id="a<Id>IdPh</Id>" url="<Url>ArticleUrlPh</Url>">0</span><script language="javascript">getClickedNum(<Id>IdPh</Id>)</script>
+	d.页面加载完执行changeAll()方法,即<body onload="changeAll()"> 
+
+2.修改稿件页
+	a.请在稿件页模板中引入http://114.251.16.30:8080/cs/contentcs.js     http://114.251.16.30:8080/cs/clickstat.js这两个js文件
+	b.同上b,c,d
+	
+	
+	
+
+
+
+
+50-1.htm
+line 186<script type="text/javascript" src="http://114.251.16.30:8080/cs/clickstat.js"></script>
+line 188 <body onload="changeAll();changeCommentCount();">
+line 118-144评论次数
+	var commentids = new Array();//存放ids,页面加载完统一提交
+	var commenturl = 'http://review.mywtv.cn:8090/nis/servlet/CommentServlet?actionType=articleCount';
+	function getCommentCount(cid){
+		commentids[commentids.length]=cid;
+	}
+	function sendReq(url){
+		var js_obj = document.createElement("script");
+		js_obj.type = "text/javascript";
+		js_obj.setAttribute("src",url);
+		return js_obj;
+	}
+	function changeCCount(id,num){
+		var dg = document.getElementById('c'+id);
+		if(dg)
+			dg.innerHTML=num;// + " ";
+	}
+	function changeCommentCount(){
+		var str = "&articleId=";
+		for(i in commentids){
+			str=str+commentids[i];
+			if(!(i==commentids.length-1)){
+				str=str+";";
+			}
+		}
+		document.body.appendChild(sendReq(commenturl+str));
+		commentids = new Array();
+	}
